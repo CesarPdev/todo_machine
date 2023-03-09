@@ -1,6 +1,6 @@
 {
-  "short_name": "ToDo App",
-  "name": "My First React App",
+  "short_name": "TODO App",
+  "name": "TODO Machine App",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
