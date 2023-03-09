@@ -23,7 +23,7 @@ function NewTodoForm() {
             <textarea 
                 value={newTodoValue}
                 onChange={onTyping}
-                placeholder='Type anything TODO'
+                placeholder='Write anything you want TODO'
             />
             <div className='TodoForm-buttonContainer'>
                 <button

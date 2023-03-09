@@ -8,6 +8,7 @@ function TodoItem(props) {
     return (
         <li className="TodoItem">
             <div
+                title="Complete this TODO"
                 className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
                 onClick={props.onComplete}            
             >
@@ -20,6 +21,7 @@ function TodoItem(props) {
                 {props.text}
             </p>
             <div
+                title="Delete this TODO"
                 className="Icon Icon-delete"
                 onClick={props.onDelete}
             >
