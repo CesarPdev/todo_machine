@@ -43,4 +43,5 @@
 
 .Icon:hover {
     transform: scale(1.7);
+    transition: .2s ease;
 }
