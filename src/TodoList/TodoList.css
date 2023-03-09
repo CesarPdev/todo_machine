@@ -1,0 +1,35 @@
+.TodoList {
+    display:grid;
+    columns: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.TodoList img {
+    margin: auto;
+}
+
+.TodoList p {
+    font-size: 20px;
+}
+
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+
+ul {
+    margin: 0;
+    padding: 0 0 56px 0;
+    min-width: 320px;
+    max-width:fit-content;
+    list-style: none;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
