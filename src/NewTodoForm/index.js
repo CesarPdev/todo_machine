@@ -4,26 +4,48 @@ import './NewTodoForm.css';
 
 function NewTodoForm() {
     const [newTodoValue, setNewTodoValue] = React.useState('');
+    const [newTodoDate, setNewTodoDate] = React.useState('');
+    const [newTodoHour, setNewTodoHour] = React.useState('');
     const { addTodo, setOpenNewModal } = React.useContext(TodoContext);
 
-    const onTyping = (event) => {
+    const onTypingTodo = (event) => {
         setNewTodoValue(event.target.value);
     };
-    
+
+    const onTypingDate = (event) => {
+        setNewTodoDate(event.target.value);
+    };
+        
+    const onTypingHour = (event) => {
+        setNewTodoHour(event.target.value);
+    };
+        
     const onCancel = () => {
         setOpenNewModal(false);
     };
     const onSubmit = (event) => {
-        addTodo(newTodoValue);
+        addTodo(`${newTodoDate} ${newTodoHour} ${newTodoValue}`);
         setOpenNewModal(false);
     };
     return(
         <form onSubmit={onSubmit}>
             <label>New TODO</label>
+            <div className='DateTime-container'>
+                <input 
+                    value={newTodoDate}
+                    type={'date'}
+                    onChange={onTypingDate}
+                />
+                <input 
+                    value={newTodoHour}
+                    type={'time'}
+                    onChange={onTypingHour}
+                />
+            </div>
             <textarea 
                 value={newTodoValue}
-                onChange={onTyping}
-                placeholder='Write anything you want TODO'
+                onChange={onTypingTodo}
+                placeholder='Your TODO'
             />
             <div className='TodoForm-buttonContainer'>
                 <button

@@ -34,7 +34,7 @@ function TodoProvider (props) {
         saveTodos(newTodos);
     };
 
-        const addTodo = (text) => {
+    const addTodo = (text) => {
         const newTodos = [...todos];
         newTodos.push({
             text,
