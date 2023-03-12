@@ -34,14 +34,13 @@ function TodoProvider (props) {
         saveTodos(newTodos);
     };
 
-    const addTodo = (date, hour, text) => {
+    const addTodo = (date, hour, value) => {
         const newTodos = [...todos];
         newTodos.push({
-            date,
-            hour,
-            text,
+            text: `${date} ${hour} ${value}`,
             completed: false
         });
+        newTodos.sort((x, y) => x.text.localeCompare(y.text));
         saveTodos(newTodos);
     };
 

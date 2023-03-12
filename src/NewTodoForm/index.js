@@ -29,7 +29,7 @@ function NewTodoForm() {
     };
     return(
         <form onSubmit={onSubmit}>
-            <label>New TODO</label>
+            <label>Nuevo TODO</label>
             <div className='DateTime-container'>
                 <input 
                     value={newTodoDate}
@@ -45,7 +45,7 @@ function NewTodoForm() {
             <textarea 
                 value={newTodoValue}
                 onChange={onTypingTodo}
-                placeholder='Your TODO'
+                placeholder='Agregar TODO'
             />
             <div className='TodoForm-buttonContainer'>
                 <button
@@ -53,14 +53,14 @@ function NewTodoForm() {
                     className='TodoForm-button TodoForm-button--cancel'
                     onClick={onCancel}
                 >
-                    Cancel
+                    Cancelar
                 </button>
                 <button
                     type='submit'
                     className='TodoForm-button TodoForm-button--add'
                     onClick={onSubmit}
                 >
-                    Add
+                    Agregar
                 </button>
             </div>
         </form>
