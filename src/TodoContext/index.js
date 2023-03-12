@@ -34,9 +34,11 @@ function TodoProvider (props) {
         saveTodos(newTodos);
     };
 
-    const addTodo = (text) => {
+    const addTodo = (date, hour, text) => {
         const newTodos = [...todos];
         newTodos.push({
+            date,
+            hour,
             text,
             completed: false
         });

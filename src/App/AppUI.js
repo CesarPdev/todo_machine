@@ -30,14 +30,14 @@ function AppUI() {
         <TodoSearch />
 
         <TodoList>
-        {error && <p>There was an error...</p>}
-            {loading && <p>Loading...</p>}
+        {error && <p>Hubo un error...</p>}
+            {loading && <p>Cargando...</p>}
             {(!loading && !filteredTodos.length) &&
             <section 
                 className="TodoList"
             >
                 <img src={yayHappy} alt='Nothing To Do'/>
-                <p>You're all done! Please enjoy your day.</p>
+                <p>Sin TODOs! Disfruta tu día.</p>
             </section>}
             {filteredTodos.map(todo => (
             <TodoItem
@@ -46,7 +46,6 @@ function AppUI() {
                 completed={todo.completed}
                 onComplete={() => completeTodo(todo.text)}
                 onDelete={() => deleteTodo(todo.text)}
-                setOpenNewModal={setOpenNewModal}
             />
         ))}
         </TodoList>
