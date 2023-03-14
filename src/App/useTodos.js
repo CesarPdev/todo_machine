@@ -10,7 +10,7 @@ function useTodos() {
     const completedTodos = todos.filter(todo => !!todo.completed).length;
     const totalTodos = todos.length;
 
-    let filteredTodos = ['hacer las compras'];
+    let filteredTodos = [];
     if (!searchValue.length >= 1) {
         filteredTodos = todos;
     } else {

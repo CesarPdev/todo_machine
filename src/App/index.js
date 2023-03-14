@@ -13,6 +13,8 @@ import yayHappy from '../icons/yay-happy.svg';
 
 function App() {
     const {
+        error,
+        loading,
         filteredTodos,
         completeTodo,
         deleteTodo,
@@ -23,7 +25,7 @@ function App() {
         searchValue,
         setSearchValue,
         addTodo,
-    } = useTodos;
+    } = useTodos();
 
     return (
         <React.Fragment>
@@ -41,12 +43,15 @@ function App() {
             </TodoHeader>
 
             <TodoList>
+                {error && <p>Hubo un error...</p>}
+                {loading && <p>Cargando...</p>}
+                {(!loading && !filteredTodos.length) &&
                 <section 
                     className="TodoList"
                 >
                     <img src={yayHappy} alt='Nothing To Do'/>
                     <p>Sin TODOs! Disfruta tu día.</p>
-                </section>
+                </section>}
                 {filteredTodos.map(todo => (
                 <TodoItem
                     key={todo.text}
