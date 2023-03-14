@@ -1,12 +1,10 @@
 import React from 'react';
-import { TodoContext } from '../TodoContext';
 import './NewTodoForm.css';
 
-function NewTodoForm() {
+function NewTodoForm({ addTodo, setOpenNewModal }) {
     const [newTodoValue, setNewTodoValue] = React.useState('');
     const [newTodoDate, setNewTodoDate] = React.useState('');
     const [newTodoHour, setNewTodoHour] = React.useState('');
-    const { addTodo, setOpenNewModal } = React.useContext(TodoContext);
 
     const onTypingTodo = (event) => {
         setNewTodoValue(event.target.value);
