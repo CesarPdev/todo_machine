@@ -5,6 +5,7 @@ import { TodoCounter } from '../TodoCounter/index.js'
 import { TodoSearch } from "../TodoSearch/index.js";
 import { TodoList } from '../TodoList/index.js'
 import { TodoError } from "../TodoError/index.js";
+import { TodoLoading } from '../TodoLoading/index.js';
 import { TodoItem } from "../TodoItem/index.js";
 import { CreateTodoButton } from "../CreateTodoButton/index.js";
 import { Modal } from "../Modal/index.js";
@@ -45,7 +46,7 @@ function App() {
 
             <TodoList>
                 {error && <TodoError />}
-                {loading && <p>Cargando...</p>}
+                {loading && <TodoLoading />}
                 {(!loading && !filteredTodos.length) &&
                 <section 
                     className="TodoList"
