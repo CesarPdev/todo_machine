@@ -22,7 +22,8 @@ function NewTodoForm({ addTodo, setOpenNewModal }) {
         setOpenNewModal(false);
     };
     const onSubmit = (event) => {
-        addTodo(newTodoDate, newTodoHour, newTodoValue);
+        if (!!newTodoValue) {
+        addTodo(newTodoDate, newTodoHour, newTodoValue)};
         setOpenNewModal(false);
     };
     return(
