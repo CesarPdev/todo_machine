@@ -50,10 +50,11 @@ function App() {
                 loading={loading}
                 filteredTodos={filteredTodos}
                 totalTodos={totalTodos}
-                onError={() => <TodoError />}
+                searchText={searchValue}
+                onError ={() => <TodoError />}
                 onLoading={() => <TodoLoading />}
                 onEmpty={() => <TodoEmpty />}
-                onEmptySearchResult={() => <TodoEmptySearchResult />}
+                onEmptySearchResult={(searchText) => <TodoEmptySearchResult searchText={searchText}/>}
             >
                 {todo => (
                     <TodoItem
