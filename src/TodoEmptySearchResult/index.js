@@ -1,11 +1,11 @@
 import React from "react";
 
-function TodoEmptySearchResult () {
+function TodoEmptySearchResult (props) {
     return(
         <section 
             className="TodoList"
         >
-            <p>Sin resultados...</p>
+            <p>Sin resultados para {props.searchText}</p>
         </section>
     );
 }
