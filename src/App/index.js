@@ -1,18 +1,18 @@
 import React from "react";
 import { useTodos } from "./useTodos.js";
-import { TodoHeader } from "../TodoHeader/index.js";
+import { TodoHeader } from '../TodoHeader/index.js';
 import { TodoCounter } from '../TodoCounter/index.js'
 import { TodoSearch } from "../TodoSearch/index.js";
 import { TodoList } from '../TodoList/index.js'
-import { TodoError } from "../TodoError/index.js";
+import { TodoError } from '../TodoError/index.js';
 import { TodoLoading } from '../TodoLoading/index.js';
 import { TodoEmpty } from '../TodoEmpty/index.js';
-import { TodoEmptySearchResult } from "../TodoEmptySearchResult/index.js";
-import { TodoItem } from "../TodoItem/index.js";
-import { CreateTodoButton } from "../CreateTodoButton/index.js";
-import { Modal } from "../Modal/index.js";
-import { NewTodoForm } from "../NewTodoForm/index.js";
-import { ChangeAlertWithStorageListener } from "../ChangeAlert/index.js";
+import { TodoEmptySearchResult } from '../TodoEmptySearchResult/index.js';
+import { TodoItem } from '../TodoItem/index.js';
+import { CreateTodoButton } from '../CreateTodoButton/index.js';
+import { Modal } from '../Modal/index.js';
+import { NewTodoForm } from '../NewTodoForm/index.js';
+import { ChangeAlert } from '../ChangeAlert/index.js';
 
 
 function App() {
@@ -81,7 +81,7 @@ function App() {
                 setOpenNewModal={setOpenNewModal}
             />
 
-            <ChangeAlertWithStorageListener
+            <ChangeAlert
                 sincronize={sincronizeTodos}
             />
                     
