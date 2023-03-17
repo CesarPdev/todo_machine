@@ -12,6 +12,7 @@ import { TodoItem } from "../TodoItem/index.js";
 import { CreateTodoButton } from "../CreateTodoButton/index.js";
 import { Modal } from "../Modal/index.js";
 import { NewTodoForm } from "../NewTodoForm/index.js";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert/index.js";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         searchValue,
         setSearchValue,
         addTodo,
+        sincronizeTodos
     } = useTodos();
 
     return (
@@ -77,6 +79,10 @@ function App() {
             )}                
             <CreateTodoButton
                 setOpenNewModal={setOpenNewModal}
+            />
+
+            <ChangeAlertWithStorageListener
+                sincronize={sincronizeTodos}
             />
                     
         </React.Fragment>
