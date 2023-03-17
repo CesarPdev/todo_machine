@@ -1,0 +1,20 @@
+.loading-container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    margin-top: 24px;
+    border: 16px solid #808080;
+    border-radius: 50%;
+    border-top: 16px solid white;
+    width: 160px;
+    height: 160px;
+    animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}

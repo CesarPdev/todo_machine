@@ -8,7 +8,7 @@ function TodoList(props) {
             {props.loading && props.onLoading()}
             {(!props.loading && !props.totalTodos) && props.onEmpty()}
             {(!!props.totalTodos && !props.filteredTodos.length) && props.onEmptySearchResult(props.searchText)}
-            {props.filteredTodos.map(props.children)}
+            {(!props.loading && !props.error) && props.filteredTodos.map(props.children)}
         </section>
     );
 }
