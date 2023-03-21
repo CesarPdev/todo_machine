@@ -64,7 +64,7 @@ function App() {
             >
                 {todo => (
                     <TodoItem
-                        key={todo.text}
+                        key={todo.index}
                         date={todo.date}
                         hour={todo.hour}
                         text={todo.text}
