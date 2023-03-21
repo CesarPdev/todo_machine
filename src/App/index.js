@@ -12,6 +12,7 @@ import { TodoItem } from '../TodoItem/index.js';
 import { CreateTodoButton } from '../CreateTodoButton/index.js';
 import { Modal } from '../Modal/index.js';
 import { NewTodoForm } from '../NewTodoForm/index.js';
+import { EditTodoForm } from '../EditTodoForm/index.js';
 import { ChangeAlert } from '../ChangeAlert/index.js';
 
 
@@ -24,11 +25,15 @@ function App() {
         deleteTodo,
         openNewModal,
         setOpenNewModal,
+        openEditTodo,
+        openEditModal,
+        setOpenEditModal,
         totalTodos,
         completedTodos,
         searchValue,
         setSearchValue,
         addTodo,
+        editTodo,
         sincronizeTodos
     } = useTodos();
 
@@ -56,15 +61,19 @@ function App() {
                 onError ={() => <TodoError />}
                 onLoading={() => <TodoLoading />}
                 onEmpty={() => <TodoEmpty />}
-                onEmptySearchResult={(searchText) => <TodoEmptySearchResult searchText={searchText}/>}
+                onEmptySearchResult={(searchText) =>
+                    <TodoEmptySearchResult searchText={searchText}/>}
             >
                 {todo => (
                     <TodoItem
                         key={todo.text}
+                        date={todo.date}
+                        hour={todo.hour}
                         text={todo.text}
                         completed={todo.completed}
                         onComplete={() => completeTodo(todo.text)}
                         onDelete={() => deleteTodo(todo.text)}
+                        setOpenEditModal={setOpenEditModal}
                     />
                 )}
             </TodoList>
@@ -76,7 +85,17 @@ function App() {
                     setOpenNewModal={setOpenNewModal}
                     />
                 </Modal>
-            )}                
+            )}
+            
+            {!!openEditModal && (
+                <Modal>
+                    <EditTodoForm
+                    editTodo={editTodo}
+                    setOpenEditModal={setOpenEditModal}
+                    />
+                </Modal>
+            )}
+
             <CreateTodoButton
                 setOpenNewModal={setOpenNewModal}
             />
