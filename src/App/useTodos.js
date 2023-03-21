@@ -40,10 +40,20 @@ function useTodos() {
     const addTodo = (date, hour, value) => {
         const newTodos = [...todos];
         newTodos.push({
-            text: `${date} ${hour} ${value}`,
+            date: date,
+            hour: hour,
+            text: value,
             completed: false
         });
-        newTodos.sort((x, y) => x.text.localeCompare(y.text));
+        newTodos.sort((a, b) => {
+            if (a.date < b.date) return -1;
+            if (a.date > b.date) return 1;
+            if (a.hour < b.hour) return -1;
+            if (a.hour > b.hour) return 1;
+            if (a.text < b.text) return -1;
+            if (a.text > b.text) return 1;
+            return 0;
+        });
         saveTodos(newTodos);
     };
 
