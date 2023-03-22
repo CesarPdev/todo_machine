@@ -12,6 +12,7 @@ import { TodoItem } from '../TodoItem/index.js';
 import { CreateTodoButton } from '../CreateTodoButton/index.js';
 import { Modal } from '../Modal/index.js';
 import { NewTodoForm } from '../NewTodoForm/index.js';
+import { EditTodoForm } from "../EditTodoForm/index.js";
 import { ChangeAlert } from '../ChangeAlert/index.js';
 
 
@@ -29,6 +30,8 @@ function App() {
         deleteTodo,
         openNewModal,
         setOpenNewModal,
+        openEditModal,
+        setOpenEditModal,
         sincronizeTodos
     } = useTodos();
 
@@ -68,6 +71,7 @@ function App() {
                         completed={todo.completed}
                         onComplete={() => completeTodo(todo.text)}
                         onDelete={() => deleteTodo(todo.text)}
+                        setOpenEditModal={setOpenEditModal}
                     />
                 )}
             </TodoList>
@@ -77,6 +81,15 @@ function App() {
                     <NewTodoForm
                     addTodo={addTodo}
                     setOpenNewModal={setOpenNewModal}
+                    />
+                </Modal>
+            )}
+
+            {!!openEditModal && (
+                <Modal>
+                    <EditTodoForm
+                    addTodo={addTodo}
+                    setOpenEditModal={setOpenEditModal}
                     />
                 </Modal>
             )}

@@ -8,9 +8,11 @@ function useTodos() {
         saveItem: saveTodos,
         sincronizeItem:sincronizeTodos,
         loading,
-        error} = useLocalStorage('TODOS_V1', []);
+        error
+    } = useLocalStorage('TODOS_V1', []);
     const [searchValue, setSearchValue] = React.useState('');
     const [openNewModal, setOpenNewModal] = React.useState(false);
+    const [openEditModal, setOpenEditModal] = React.useState(false);
     
     const completedTodos = todos.filter(todo => !!todo.completed).length;
     const totalTodos = todos.length;
@@ -24,17 +26,6 @@ function useTodos() {
         const searchText = searchValue.toLowerCase();
         return todoText.includes(searchText);
         });
-    }
-
-    const completeTodo = (text) => {
-        const todoIndex = todos.findIndex(todo => todo.text === text);
-        const newTodos = [...todos];
-        if (newTodos[todoIndex].completed === true) {
-            newTodos[todoIndex].completed = false;
-        } else {
-            newTodos[todoIndex].completed = true;
-        };
-        saveTodos(newTodos);
     };
 
     const addTodo = (date, hour, value) => {
@@ -54,6 +45,17 @@ function useTodos() {
             if (a.text > b.text) return 1;
             return 0;
         });
+        saveTodos(newTodos);
+    };
+
+    const completeTodo = (text) => {
+        const todoIndex = todos.findIndex(todo => todo.text === text);
+        const newTodos = [...todos];
+        if (newTodos[todoIndex].completed === true) {
+            newTodos[todoIndex].completed = false;
+        } else {
+            newTodos[todoIndex].completed = true;
+        };
         saveTodos(newTodos);
     };
 
@@ -77,6 +79,8 @@ function useTodos() {
             deleteTodo,
             openNewModal,
             setOpenNewModal,
+            openEditModal,
+            setOpenEditModal,
             sincronizeTodos
         };
 }

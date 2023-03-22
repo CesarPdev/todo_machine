@@ -5,6 +5,10 @@ import deleteClipboard from '../icons/delete-clipboard.svg';
 
 function TodoItem(props) {
     
+    const onEdit = () => {
+        props.setOpenEditModal(true);
+    };
+    
     return (
         <li className="TodoItem">
             <div
@@ -16,7 +20,7 @@ function TodoItem(props) {
             </div>
             <p
                 className={`TodoItem-p ${props.completed && 'TodoItem-p--completed'}`}
-                onClick={props.onComplete}
+                onClick={onEdit}
             >
                 {props.date} {props.hour} {props.text}
             </p>
