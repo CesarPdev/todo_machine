@@ -22,6 +22,7 @@ function EditTodoForm({ addTodo, setOpenEditModal }) {
         setOpenEditModal(false);
     };
     const onSubmit = (event) => {
+        event.preventDefault();
         if (!!newTodoValue) {
         addTodo(newTodoDate, newTodoHour, newTodoValue)};
         setOpenEditModal(false);
