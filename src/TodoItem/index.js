@@ -16,7 +16,7 @@ function TodoItem(props) {
             </div>
             <p
                 className={`TodoItem-p ${props.completed && 'TodoItem-p--completed'}`}
-                onClick={props.editTodo}
+                onClick={props.onComplete}
             >
                 {props.date} {props.hour} {props.text}
             </p>

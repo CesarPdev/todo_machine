@@ -11,7 +11,6 @@ function useTodos() {
         error} = useLocalStorage('TODOS_V1', []);
     const [searchValue, setSearchValue] = React.useState('');
     const [openNewModal, setOpenNewModal] = React.useState(false);
-    const [openEditModal, setOpenEditModal] = React.useState(false);
     
     const completedTodos = todos.filter(todo => !!todo.completed).length;
     const totalTodos = todos.length;
@@ -65,10 +64,6 @@ function useTodos() {
         saveTodos(newTodos);
     };
 
-    const editTodo = () => {
-        setOpenEditModal(true);
-    };
-
     return {
             error,
             loading,
@@ -80,11 +75,8 @@ function useTodos() {
             addTodo,
             completeTodo,
             deleteTodo,
-            editTodo,
             openNewModal,
             setOpenNewModal,
-            openEditModal,
-            setOpenEditModal,
             sincronizeTodos
         };
 }
