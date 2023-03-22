@@ -4,7 +4,7 @@ import checkClipboard from '../icons/check-clipboard.svg';
 import deleteClipboard from '../icons/delete-clipboard.svg';
 
 function TodoItem(props) {
-        
+    
     return (
         <li className="TodoItem">
             <div
@@ -16,6 +16,7 @@ function TodoItem(props) {
             </div>
             <p
                 className={`TodoItem-p ${props.completed && 'TodoItem-p--completed'}`}
+                onClick={props.editTodo}
             >
                 {props.date} {props.hour} {props.text}
             </p>

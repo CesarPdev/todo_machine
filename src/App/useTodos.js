@@ -11,8 +11,7 @@ function useTodos() {
         error} = useLocalStorage('TODOS_V1', []);
     const [searchValue, setSearchValue] = React.useState('');
     const [openNewModal, setOpenNewModal] = React.useState(false);
-    const [editIndex, setEditIndex] = React.useState('');
-    const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [openEditModal, setOpenEditModal] = React.useState(false);
     
     const completedTodos = todos.filter(todo => !!todo.completed).length;
     const totalTodos = todos.length;
@@ -55,11 +54,7 @@ function useTodos() {
             if (a.text < b.text) return -1;
             if (a.text > b.text) return 1;
             return 0;
-<<<<<<< HEAD
-            });
-=======
         });
->>>>>>> AddDateHour
         saveTodos(newTodos);
     };
 
@@ -68,6 +63,10 @@ function useTodos() {
         const newTodos = [...todos];
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
+    };
+
+    const editTodo = () => {
+        setOpenEditModal(true);
     };
 
     return {
@@ -81,12 +80,11 @@ function useTodos() {
             addTodo,
             completeTodo,
             deleteTodo,
+            editTodo,
             openNewModal,
             setOpenNewModal,
-            isModalOpen,
-            setIsModalOpen,
-            editIndex,
-            setEditIndex,
+            openEditModal,
+            setOpenEditModal,
             sincronizeTodos
         };
 }
