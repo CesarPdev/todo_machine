@@ -10,6 +10,7 @@ function useTodos() {
         loading,
         error
     } = useLocalStorage('TODOS_V1', []);
+
     const [searchValue, setSearchValue] = React.useState('');
     const [openNewModal, setOpenNewModal] = React.useState(false);
     const [openEditModal, setOpenEditModal] = React.useState(false);
@@ -31,6 +32,7 @@ function useTodos() {
     const addTodo = (date, hour, value) => {
         const newTodos = [...todos];
         newTodos.push({
+            id: Math.floor(Math.random()*10000),
             date: date,
             hour: hour,
             text: value,
@@ -48,8 +50,8 @@ function useTodos() {
         saveTodos(newTodos);
     };
 
-    const completeTodo = (text) => {
-        const todoIndex = todos.findIndex(todo => todo.text === text);
+    const completeTodo = (id) => {
+        const todoIndex = todos.findIndex(todo => todo.id === id);
         const newTodos = [...todos];
         if (newTodos[todoIndex].completed === true) {
             newTodos[todoIndex].completed = false;
@@ -59,8 +61,8 @@ function useTodos() {
         saveTodos(newTodos);
     };
 
-    const deleteTodo = (text) => {
-        const todoIndex = todos.findIndex(todo => todo.text === text);
+    const deleteTodo = (id) => {
+        const todoIndex = todos.findIndex(todo => todo.id === id);
         const newTodos = [...todos];
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
