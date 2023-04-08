@@ -1,21 +1,21 @@
 import React from 'react';
 import './EditTodoForm.css';
 
-function EditTodoForm({ addTodo, setOpenEditModal }) {
-    const [newTodoValue, setNewTodoValue] = React.useState('');
-    const [newTodoDate, setNewTodoDate] = React.useState('');
-    const [newTodoHour, setNewTodoHour] = React.useState('');
-
+function EditTodoForm({ editableTodo, editTodo, setOpenEditModal }) {
+    const [editedDate, setEditedDate] = React.useState(editableTodo[0].date);
+    const [editedHour, setEditedHour] = React.useState(editableTodo[0].hour);
+    const [editedText, setEditedText] = React.useState(editableTodo[0].text);
+    
     const onTypingTodo = (event) => {
-        setNewTodoValue(event.target.value);
+        setEditedText(event.target.value);
     };
 
     const onTypingDate = (event) => {
-        setNewTodoDate(event.target.value);
+        setEditedDate(event.target.value);
     };
         
     const onTypingHour = (event) => {
-        setNewTodoHour(event.target.value);
+        setEditedHour(event.target.value);
     };
         
     const onCancel = () => {
@@ -23,8 +23,7 @@ function EditTodoForm({ addTodo, setOpenEditModal }) {
     };
     const onSubmit = (event) => {
         event.preventDefault();
-        if (!!newTodoValue) {
-        addTodo(newTodoDate, newTodoHour, newTodoValue)};
+        editTodo(editableTodo, editedDate, editedHour, editedText);
         setOpenEditModal(false);
     };
     return(
@@ -32,18 +31,18 @@ function EditTodoForm({ addTodo, setOpenEditModal }) {
             <label>Editar TODO</label>
             <div className='DateTime-container'>
                 <input 
-                    value={newTodoDate}
+                    value={editedDate}
                     type={'date'}
                     onChange={onTypingDate}
                 />
                 <input 
-                    value={newTodoHour}
+                    value={editedHour}
                     type={'time'}
                     onChange={onTypingHour}
                 />
             </div>
             <textarea 
-                value={newTodoValue}
+                value={editedText}
                 onChange={onTypingTodo}
                 placeholder='Agregar TODO'
             />

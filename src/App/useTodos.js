@@ -14,8 +14,9 @@ function useTodos() {
     const [searchValue, setSearchValue] = React.useState('');
     const [openNewModal, setOpenNewModal] = React.useState(false);
     const [openEditModal, setOpenEditModal] = React.useState(false);
+    const [editableTodo, setEditableTodo] = React.useState({});
     
-    const completedTodos = todos.filter(todo => !!todo.completed).length;
+    const completedTodos = todos.filter(todo => todo.completed).length;
     const totalTodos = todos.length;
 
     let filteredTodos = [];
@@ -68,6 +69,32 @@ function useTodos() {
         saveTodos(newTodos);
     };
 
+    const onEditTodo = (id) => {
+        setEditableTodo(todos.filter(todo => todo.id === id));
+        setOpenEditModal(true);
+        
+    };
+
+    const editTodo = (editableTodo, editedDate, editedHour, editedText) => {
+        const todoIndex = todos.findIndex(todo => todo.id === editableTodo[0].id);
+        const newTodos = [...todos];
+        newTodos[todoIndex].date = editedDate;
+        newTodos[todoIndex].hour = editedHour;
+        newTodos[todoIndex].text = editedText;
+        newTodos.sort((a, b) => {
+            if (a.date < b.date) return -1;
+            if (a.date > b.date) return 1;
+            if (a.hour < b.hour) return -1;
+            if (a.hour > b.hour) return 1;
+            if (a.text < b.text) return -1;
+            if (a.text > b.text) return 1;
+            return 0;
+        });
+        saveTodos(newTodos);
+    };
+
+    
+
     return {
             error,
             loading,
@@ -79,10 +106,14 @@ function useTodos() {
             addTodo,
             completeTodo,
             deleteTodo,
+            editTodo,
+            onEditTodo,
             openNewModal,
             setOpenNewModal,
             openEditModal,
             setOpenEditModal,
+            editableTodo,
+            setEditableTodo,
             sincronizeTodos
         };
 }

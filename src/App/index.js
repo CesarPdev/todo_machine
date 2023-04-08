@@ -28,6 +28,9 @@ function App() {
         addTodo,
         completeTodo,
         deleteTodo,
+        editableTodo,
+        editTodo,
+        onEditTodo,
         openNewModal,
         setOpenNewModal,
         openEditModal,
@@ -72,6 +75,7 @@ function App() {
                         completed={todo.completed}
                         onComplete={() => completeTodo(todo.id)}
                         onDelete={() => deleteTodo(todo.id)}
+                        onEdit={() => onEditTodo(todo.id)}
                         setOpenEditModal={setOpenEditModal}
                     />
                 )}
@@ -89,7 +93,8 @@ function App() {
             {!!openEditModal && (
                 <Modal>
                     <EditTodoForm
-                    addTodo={addTodo}
+                    editableTodo={editableTodo}
+                    editTodo={editTodo}
                     setOpenEditModal={setOpenEditModal}
                     />
                 </Modal>
