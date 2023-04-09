@@ -21,9 +21,8 @@ section {
 
 
 ul {
-    margin: 0;
+    margin: 48px;
     padding: 0 0 56px 0;
-    min-width: 320px;
     width:fit-content;
     list-style: none;
 }

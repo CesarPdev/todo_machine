@@ -18,7 +18,8 @@ function TodoItem(props) {
                 className={`TodoItem-p ${props.completed && 'TodoItem-p--completed'}`}
                 onClick={props.onEdit}
             >
-                {props.date} {props.hour} {props.text}
+                {props.date} {props.hour}<br/>
+                {props.text}
             </p>
             <div
                 title="Delete"
