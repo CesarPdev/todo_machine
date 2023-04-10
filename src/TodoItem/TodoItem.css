@@ -1,8 +1,10 @@
 .TodoItem {
     background-color: #FAFAFA;
     border-radius: 12px;
-    position: relative;
+    position:relative;
     display: flex;
+    min-width: 320px;
+    max-width: 640px;
     justify-content: center;
     align-items: center;
     margin-top: 24px;
@@ -12,7 +14,8 @@
 .TodoItem-p {
     cursor: pointer;
     margin: 24px;
-    width: calc(100% - 120px);
+    width: calc(100% - 96px);
+    justify-content: left;
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
