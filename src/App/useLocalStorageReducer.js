@@ -92,6 +92,7 @@ function useLocalStorageReducer(itemName, initialValue) {
         },
         [actionTypes.save]: {
             ...state,
+            item: payload
 
         },
         [actionTypes.sync]: {
