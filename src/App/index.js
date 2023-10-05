@@ -39,7 +39,7 @@ function App() {
     } = useTodos();
 
     return (
-        <React.Fragment>
+        <>
 
             <TodoHeader loading={loading}>
                 <TodoCounter
@@ -108,7 +108,7 @@ function App() {
                 sincronize={sincronizeTodos}
             />
 
-        </React.Fragment>
+        </>
     
     );
 }

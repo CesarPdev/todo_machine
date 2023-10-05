@@ -1,5 +1,5 @@
-import React from "react";
-import { useLocalStorage } from "./useLocalStorage.js";
+import { useState } from "react";
+import { useLocalStorageReducer } from "./useLocalStorageReducer.js";
 
 function useTodos() {
 
@@ -9,12 +9,12 @@ function useTodos() {
         sincronizeItem:sincronizeTodos,
         loading,
         error
-    } = useLocalStorage('TODOS_V1', []);
+    } = useLocalStorageReducer('TODOS_V2', []);
 
-    const [searchValue, setSearchValue] = React.useState('');
-    const [openNewModal, setOpenNewModal] = React.useState(false);
-    const [openEditModal, setOpenEditModal] = React.useState(false);
-    const [editableTodo, setEditableTodo] = React.useState({});
+    const [searchValue, setSearchValue] = useState('');
+    const [openNewModal, setOpenNewModal] = useState(false);
+    const [openEditModal, setOpenEditModal] = useState(false);
+    const [editableTodo, setEditableTodo] = useState({});
     
     const completedTodos = todos.filter(todo => todo.completed).length;
     const totalTodos = todos.length;
